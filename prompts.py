@@ -3,7 +3,8 @@ import openai
 from dotenv import load_dotenv
 
 load_dotenv()
-openai.api_key = os.getenv("OPENAI_API_KEY")
+#openai.api_key = os.getenv("OPENAI_API_KEY")
+openai.api_key = os.environ["OPENAI_API_KEY"]  # This works with Hugging Face secrets
 
 def skill_to_business_prompt(skill: str, filters=None) -> str:
     prompt = f"I have this skill: {skill}.\nAct like a startup advisor."
